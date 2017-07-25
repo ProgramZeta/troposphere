@@ -161,7 +161,7 @@ class BaseAWSObject(object):
             # validation (in the case of a list expected_type).
             if (isinstance(value, AWSHelperFn) and
                     not isinstance(expected_type, list)) or \
-                    isinstance(value, If):
+                    isinstance(value, (Ref, If)):
                 return self.properties.__setitem__(name, value)
 
             # If it's a function, call it...
